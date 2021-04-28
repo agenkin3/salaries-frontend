@@ -1,11 +1,15 @@
-// const BACKEND_URL = 'http://localhost:3000';
-// fetch(`${BACKEND_URL}/api/v1/posts`, {mode: 'no-cors'})
-// .then(response => response.json())
-// .then(parsedResponse => console.log(parsedResponse));
+// class Post {
+//   constructor(title, salary, detail) {
+//     this.title = title; 
+//     this.salary = salary;
+//     this.detail = detail;
+//   }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const endPoint = 'http://localhost:3000/api/v1/posts';
-  fetch (endPoint)
-  .then(res => res.json())
-  .then (json => console.log(json));
-});
+  // function fetchPosts() {
+  //   fetch(${BASE_URL}/users)
+  //   .then (resp => resp.json()}
+  //   .then (users => {
+
+  //   })
+
+  PostApi.getPosts()
