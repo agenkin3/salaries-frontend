@@ -11,5 +11,6 @@
   //   .then (users => {
 
   //   })
+const allposts = document.getElementById("post-list")
 
-  PostApi.getPosts()
+PostApi.getPosts()

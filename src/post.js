@@ -4,12 +4,12 @@ class Post {
   static container = document.getElementById('post-list')
 
   constructor(
-    {id, title, salary, detail, industryId}
+    {id, title, salary, details, industryId}
     ){
       this.id = id
       this.title = title
       this.salary = salary
-      this.detail = detail
+      this.details = details
       this.industryId = industryId
       //creating a list item HTML element 
       this.element = document.createElement('li')
@@ -22,7 +22,26 @@ class Post {
 
       Post.all.push(this)
     }
-  // my next function
+  
+    renderLi(){
+      this.element.innerHTML = `
+      <div data-id=${this.id}>
+          <span class="price">${this.title}</span>
+          <strong class="name">${this.salary}</strong>:
+          <span class="description">${this.details}</span> 
+          <span class="industry_id">${this.industryId}</span> 
+      </div>
+      <button class="edit" data-id="${this.id}">Edit</button>
+      <button class="delete" data-id="${this.id}">Delete</button>
+  `
+
+      return this.element
+  }
+
+  attachToDom(){
+      
+      allposts.appendChild(this.renderLi())
+  }
 
 
 }
