@@ -3,12 +3,14 @@ class PostApi {
 
   static getPosts() {
     fetch(this.baseURL) 
-    .then(res => console.log(res))
-    .then (res => res.json ()) 
-    .then ( json => {
-      json["data"].forEach(element => {
-        const p = new Post({id: element.id, ...element.attributes})
-        p.attachToDom()
+    .then(res => res.json())
+    // console log to debug
+    .then(json => console.log(json))
+    .then(json => {
+      json.forEach(post => {
+        const p = new Post({id: post.id, ...post.attributes})
+        // won't log to console...this is where we error
+        console.log(p)
       })
     })
   }

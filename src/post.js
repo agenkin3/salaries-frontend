@@ -2,7 +2,7 @@ class Post {
   static all = []
 
   static container = document.getElementById('post-list')
-  
+
   constructor(
     {id, title, salary, detail, industry_id}
     ){
@@ -11,10 +11,11 @@ class Post {
       this.salary = salary
       this.detail = detail
       this.industry_id = industry_id
+      
       //creating a list item HTML element 
       this.element = document.createElement('li')
       //for that element, assign it the ID 
-      this.element.id = `post - $(id}`
+      this.element.id = `post-$(id}`
       //what does this line do?
       this.element.dataset.id = id
 
