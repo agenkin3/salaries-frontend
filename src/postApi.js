@@ -5,10 +5,10 @@ class PostApi {
     fetch(this.baseURL) 
     .then(res => res.json())
     // console log to debug
-    .then(json => console.log(json))
-    .then(json => {
-      json.forEach(post => {
-        const p = new Post({id: post.id, ...post.attributes})
+    //.then(json => console.log(json))
+    .then(data => {
+      data.forEach(post => {
+        const p = new Post({id: post.id, title: post.title, salary: post.salary, industryId: post.industry_id})
         // won't log to console...this is where we error
         console.log(p)
       })
