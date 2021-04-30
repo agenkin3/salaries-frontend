@@ -38,8 +38,29 @@ class PostApi {
         }
     }
     
-    fetch(`${this.baseURL}/${id}`, configObj)
+    fetch(`${this.baseURL}`, configObj)
         .then(r => r.json())
         .then(json => alert(json.message))
 }
+//take user input 
+//send to backend to update a given post
+
+static editPost(post) {
+  //define a variable called post with the fields title, salary, details
+  //deconstruction
+  let {title, salary, details} = post
+  const postInfo = {
+    title,
+    salary,
+    details
+  }
+  //this is what we will do with the user input for edit post 
+  const configObj = {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+  body: JSON.stringify(PostInfo)
+  })
 }

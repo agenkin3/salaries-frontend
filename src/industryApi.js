@@ -14,18 +14,18 @@ class IndustryApi {
       })
     })
   }
-
-  static deleteIndustry(id){
-    const configObj = {
-        method: 'DELETE',
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        }
-    }
+}
+// deleteIndustry(id){
+//     const configObj = {
+//         method: 'DELETE',
+//         headers: {
+//             "Content-Type": "application/json",
+//             Accept: "application/json"
+//         }
+//     }
     
-    fetch(`${this.baseURL}`, configObj)
-        .then(r => r.json())
-        .then(json => alert(json.message))
-}
-}
+//     fetch(`${this.baseURL}`, configObj)
+//         .then(r => r.json())
+//         .then(json => alert(json.message))
+// }
+// }

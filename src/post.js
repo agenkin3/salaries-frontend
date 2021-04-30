@@ -61,26 +61,55 @@ class Post {
 //     }
 
 //change below 
+//add edit and save
   handleItemClick = (e) => {
-    if (e.target.innerText === "Edit"){
-        
-        this.createEditFields(e.target)
-
-        e.target.innerText = "Save"
-    }else if(e.target.innerText === "Delete"){
-       
-        this.deleteItem(e)
-    } else if(e.target.innerText === "Save"){ 
-       
-        this.saveUpdatedItem()
-
-        e.target.innerText = "Edit"
+    if (e.target.innerText === "Delete"){
+      this.deleteItem(e)
     }
 
-    deleteItem = (e) => {
-      this.element.remove() //remove element from DOM 
-      ItemApi.deleteItem(this.id) // remove element using API 
-  }
-}
+       
+      //     this.deleteItem(e)
+    // if (e.target.innerText === "Edit"){
+        
+    //     this.createEditFields(e.target)
 
+    //     e.target.innerText = "Save"
+    // }else if(e.target.innerText === "Delete"){
+       
+    //     this.deleteItem(e)
+    // } else if(e.target.innerText === "Save"){ 
+       
+    //     this.saveUpdatedItem()
+
+    //     e.target.innerText = "Edit"
+
+  }
+
+  deleteItem = (e) => {
+    this.element.remove() //remove element from DOM 
+    PostApi.deletePost(this.id) // remove element using API 
+  }
+//when you click the edit button it will display the edit field with current information prepopulating
+
+  editItem = (e) => {
+    const element = this.element
+    const div = this.element.querySelector('div')
+
+    const title = element.querySelector('.title')
+    const salary = element.querySelector('.salary')
+    const details = element.querySelector('.details')
+  }
+//fix salary and num 
+  div.innerHTML = `
+  <input type="text" name="title" class="edit-title" value="${title}">
+        <input type="text" name="salary" class="edit-salary" value="${salary}">
+        <input type="number" name="details" class="edit-details" min="0" step=".01" value="${details}">
+
+  `
+
+  //save item 
+  //call function defined in postAPI file that sends information to backend
+  saveItem = (e) => {
+    const li = this.element
+  }
 }

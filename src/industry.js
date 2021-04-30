@@ -2,7 +2,6 @@ class Industry {
   static all = []
   
   static container = document.getElementById('industry-list')
-  
   constructor(
     {id, name, description}){
       this.id = id
@@ -38,6 +37,40 @@ class Industry {
       allindustries.appendChild(this.renderindustry())
     }
 
+    // function createEditFields = (editBtn) => {
+    //   // now using this to access the element
+    //   const li = this.element
+    //   const div = this.element.querySelector('div')
+
+    // }
+    handleIClick = (e) => {
+      if (e.target.innerText === "Edit"){
+          this.createEditFields(e.target)
+          e.target.innerText = "Save"
+
+      }else if(e.target.innerText === "Delete"){
+          this.deleteIndustry(e)
+      } else if(e.target.innerText === "Save"){ 
+      
+          this.saveUpdatedIndustry()
+
+      }
+
+  }
+  
+  // function click = (e) {
+  //   e.preventDefault
+  //   fetch(`http://localhost:3000/toys/${e.target.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+
+  //     },
+  //     body: JSON.stringify(
+  // }
+  
+}
 // class Industry{
 //   static all = []
 //   static container = document.getElementById('industry-list')
@@ -128,4 +161,5 @@ class Industry {
     
 //   // }
 // }
-  }
+
+  
