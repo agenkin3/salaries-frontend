@@ -23,9 +23,10 @@ class PostApi {
           Accept: "application/json"
         }
     }
-    
-    fetch(`${this.baseURL}`, configObj)
+    debugger
+    fetch(`${this.baseURL}/${id}`, configObj)
       .then(r => r.json())
+      //put debugger here {debugger}
       .then(json => alert(json.message))
   }
 }

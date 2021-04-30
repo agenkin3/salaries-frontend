@@ -108,10 +108,12 @@ class Post {
   
 //fix salary and num 
   div.innerHTML = `
-  <input type="text" name="title" class="edit-title" value="${title}">
-        <input type="text" name="salary" class="edit-salary" value="${salary}">
-        <input type="number" name="details" class="edit-details" min="0" step=".01" value="${details}">
-
+  <label for="post-title">Title:</label> 
+  <input type="text" name="title" class="edit-title" value="${title}"> <br>
+  <label for="post-salaru">Salary:</label>
+        <input type="num" name="salary" class="edit-salary" value="${salary}"> <br>
+        <label for="post-details">Details:</label>
+        <input type="text" name="details" class="edit-details" value="${details}"> <br>
   `
   }
   //save post
