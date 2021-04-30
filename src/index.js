@@ -1,5 +1,3 @@
-
-
 const allposts = document.getElementById("post-list")
 const allindustries = document.getElementById("industry-list")
 // allposts.addEventListener('click', function(event) {
@@ -12,8 +10,9 @@ const allindustries = document.getElementById("industry-list")
 //   }
 // })
 
-PostApi.getPosts()
+
 IndustryApi.getIndustries()
+PostApi.getPosts()
 //read = fetch post index
 
 //create - create a new post

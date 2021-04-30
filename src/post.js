@@ -18,7 +18,7 @@ class Post {
       //what does this line do?
       this.element.dataset.id = id
       //what does this line dd?
-      this.element.addEventListener('click', this.handleItemClick)
+      this.element.addEventListener('click', this.handlePostClick)
 
       Post.all.push(this)
     }
@@ -36,12 +36,12 @@ class Post {
   `
 
       return this.element
-  }
+     }   
 
   attachToDom(){
       
       allposts.appendChild(this.renderPost())
-  }
+      } 
 // createEditFields = (editBtn) =>{
 //         // now using this to access the element
 //         const li = this.element
@@ -62,10 +62,16 @@ class Post {
 
 //change below 
 //add edit and save
-  handleItemClick = (e) => {
-    if (e.target.innerText === "Delete"){
-      this.deleteItem(e)
+ handlePostClick = (e) => {
+    if (e.target.innerText === "delete"){
+      this.deletePost(e)
     }
+    // else if (e.target.innerText === "edit") {
+    //   this.editPost(e)
+    // }
+    // else if (e.target.innerText === "save") {
+    //   this.savePost(e)
+    // }
 
        
       //     this.deleteItem(e)
@@ -85,20 +91,21 @@ class Post {
 
   }
 
-  deleteItem = (e) => {
+  deletePost = (e) => {
     this.element.remove() //remove element from DOM 
     PostApi.deletePost(this.id) // remove element using API 
   }
-//when you click the edit button it will display the edit field with current information prepopulating
 
-  editItem = (e) => {
+  //when you click the edit button it will display the edit field with current information prepopulating
+
+  editPost = (e) => {
     const element = this.element
     const div = this.element.querySelector('div')
 
     const title = element.querySelector('.title')
     const salary = element.querySelector('.salary')
     const details = element.querySelector('.details')
-  }
+  
 //fix salary and num 
   div.innerHTML = `
   <input type="text" name="title" class="edit-title" value="${title}">
@@ -106,10 +113,15 @@ class Post {
         <input type="number" name="details" class="edit-details" min="0" step=".01" value="${details}">
 
   `
-
-  //save item 
+  }
+  //save post
   //call function defined in postAPI file that sends information to backend
-  saveItem = (e) => {
-    const li = this.element
+  savePost = (e) => {
+    this.title = this.element.querySelector(".edit-title").value
+    this.salary = this.element.querySelector(".edit-salary").value
+    this.details = this.element.querySelector(".edit-details").value
+
+    PostApi.savePost(this)
   }
 }
+

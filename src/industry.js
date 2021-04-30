@@ -23,12 +23,11 @@ class Industry {
     renderindustry() {
       this.element.innerHTML = `
       <div data-id= ${this.id}>
-          <strong class="title">Name: ${this.name}</strong> <br>
+          <strong class="title"> ${this.name}</strong> <br>
           <span class="salary">Description: ${this.description}</span> <br>
   
       </div>
-      <button class="edit" data-id="${this.id}">Edit</button>
-      <button class="delete" data-id="${this.id}">Delete</button>
+      <button class="view" data-id="${this.id}">View</button>
   `
       return this.element
   }
@@ -43,20 +42,20 @@ class Industry {
     //   const div = this.element.querySelector('div')
 
     // }
-    handleIClick = (e) => {
-      if (e.target.innerText === "Edit"){
-          this.createEditFields(e.target)
-          e.target.innerText = "Save"
+  //   handleIClick = (e) => {
+  //     if (e.target.innerText === "Edit"){
+  //         this.createEditFields(e.target)
+  //         e.target.innerText = "Save"
 
-      }else if(e.target.innerText === "Delete"){
-          this.deleteIndustry(e)
-      } else if(e.target.innerText === "Save"){ 
+  //     }else if(e.target.innerText === "Delete"){
+  //         this.deleteIndustry(e)
+  //     } else if(e.target.innerText === "Save"){ 
       
-          this.saveUpdatedIndustry()
+  //         this.saveUpdatedIndustry()
 
-      }
+  //     }
 
-  }
+  // }
   
   // function click = (e) {
   //   e.preventDefault
