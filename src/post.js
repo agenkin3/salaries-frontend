@@ -63,12 +63,12 @@ class Post {
 //change below 
 //add edit and save
  handlePostClick = (e) => {
-    if (e.target.innerText === "delete"){
+    if (e.target.innerText === "Delete"){
       this.deletePost(e)
     }
-    // else if (e.target.innerText === "edit") {
-    //   this.editPost(e)
-    // }
+    else if (e.target.innerText === "Edit") {
+      this.editPost(e)
+    }
     // else if (e.target.innerText === "save") {
     //   this.savePost(e)
     // }
