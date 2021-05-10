@@ -31,7 +31,7 @@ class Industry {
   `
       return this.element
   }
-  
+
   attachToDom(){
       allindustries.appendChild(this.renderindustry())
     }
@@ -57,19 +57,7 @@ class Industry {
 
   // }
   
-  // function click = (e) {
-  //   e.preventDefault
-  //   fetch(`http://localhost:3000/toys/${e.target.id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-
-  //     },
-  //     body: JSON.stringify(
-  // }
-  
-}
+  }
 // class Industry{
 //   static all = []
 //   static container = document.getElementById('industry-list')

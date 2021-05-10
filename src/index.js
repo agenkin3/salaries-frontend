@@ -13,6 +13,7 @@ const allindustries = document.getElementById("industry-list")
 
 IndustryApi.getIndustries()
 PostApi.getPosts()
+//Post.renderPost()
 //read = fetch post index
 
 //create - create a new post

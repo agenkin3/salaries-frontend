@@ -1,11 +1,11 @@
 class Post {
   static all = []
-
   static container = document.getElementById('post-list')
-
+  //a constructor is a function that creates an instance of a class which is typically called an object
+  //the purpose is to create an object and set values
   constructor(
-    {id, title, salary, details, industryId}
-    ){
+    {id, title, salary, details, industryId})
+      {
       this.id = id
       this.title = title
       this.salary = salary
@@ -19,13 +19,13 @@ class Post {
       this.element.dataset.id = id
       //what does this line dd?
       this.element.addEventListener('click', this.handlePostClick)
-
       Post.all.push(this)
-    }
+      }
+      
   
     renderPost(){
       this.element.innerHTML = `
-      <div data-id=${this.id}>
+      <div data-id="${this.id}">
           <strong class="title">Job Title: ${this.title}</strong> <br>
           <span class="salary">Salary($): ${this.salary}</span> <br>
           <span class="details">Details: ${this.details}</span> <br>
@@ -37,66 +37,31 @@ class Post {
 
       return this.element
      }   
-
-  attachToDom(){
-      
-      allposts.appendChild(this.renderPost())
-      } 
-// createEditFields = (editBtn) =>{
-//         // now using this to access the element
-//         const li = this.element
-//         const div = this.element.querySelector('div')
-
-//         // Grab the current values to pre-populate our input fields
-//         const name = li.querySelector('.name').innerText
-//         const description = li.querySelector('.description').innerText
-//         const price = li.querySelector('.price').innerText
+    
+    
+     attachToDom(){
         
-//         // update the html and interpolate values:
-//         div.innerHTML = `
-//         <input type="text" name="name" class="edit-name" value="${name}">
-//         <input type="text" name="description" class="edit-description" value="${description}">
-//         <input type="number" name="price" class="edit-price" min="0" step=".01" value="${price}">
-//         `
-//     }
+      allposts.appendChild(this.renderPost())
+  }
 
-//change below 
-//add edit and save
- handlePostClick = (e) => {
+// //change below 
+// //add edit and save
+  handlePostClick = (e) => {
     if (e.target.innerText === "Delete"){
       this.deletePost(e)
     }
     else if (e.target.innerText === "Edit") {
       this.editPost(e)
     }
-    // else if (e.target.innerText === "save") {
-    //   this.savePost(e)
-    // }
-
-       
-      //     this.deleteItem(e)
-    // if (e.target.innerText === "Edit"){
-        
-    //     this.createEditFields(e.target)
-
-    //     e.target.innerText = "Save"
-    // }else if(e.target.innerText === "Delete"){
-       
-    //     this.deleteItem(e)
-    // } else if(e.target.innerText === "Save"){ 
-       
-    //     this.saveUpdatedItem()
-
-    //     e.target.innerText = "Edit"
-
+    else if (e.target.innerText === "Create") {
+      this.createPost(e)
+    }
   }
-
-  deletePost = (e) => {
-    this.element.remove() //remove element from DOM 
-    PostApi.deletePost(this.id) // remove element using API 
-  }
-
-  //when you click the edit button it will display the edit field with current information prepopulating
+deletePost = (e) => {
+this.element.remove() //remove element from DOM 
+PostApi.deletePost(this.id) // remove element using API 
+}
+//   //when you click the edit button it will display the edit field with current information prepopulating
 
   editPost = (e) => {
     const element = this.element
@@ -118,12 +83,22 @@ class Post {
   }
   //save post
   //call function defined in postAPI file that sends information to backend
-  savePost = (e) => {
-    this.title = this.element.querySelector(".edit-title").value
-    this.salary = this.element.querySelector(".edit-salary").value
-    this.details = this.element.querySelector(".edit-details").value
-
-    PostApi.savePost(this)
+  saveUpdatedPost = () => {
+    this.price = this.element.querySelector(".edit-title").value
+    this.name = this.element.querySelector(".edit-salary").value
+    this.description = this.element.querySelector(".edit-details").value
+    PostApi.createPost(this) // moved fetch to itemApi for separation of concerns
+}
+//figure out how to name elements, and then grab the correct one
+// in CSS a dot is for a class and a hashtag is for an ID 
+  createPost = () => {
+    e.preventDefault();
+    this.title = this.element.querySelector("#new-post-title").value
+    this.salary = this.element.querySelector("#new-post-salary").value
+    this.details = this.element.querySelector("#new-post-details").value
+    console.log('create post function')
+    // postApi.savePost(this)
+    // PostApi.createPost(this)
+    this.element.append()
   }
 }
-

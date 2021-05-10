@@ -1,38 +1,52 @@
 class PostApi {
-  static baseURL = 'http://localhost:3000/api/v1/posts'
+static baseURL = 'http://localhost:3000/api/v1/posts'
 
   static getPosts() {
     fetch(this.baseURL) 
     .then(res => res.json())
-    // console log to debug
-    //.then(json => console.log(json))
+      // console log to debug
+      //.then(json => console.log(json))
     .then(data => {
-      data.forEach(post => {
-        const p = new Post({id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industry_id})
-        p.attachToDom()
-      })
+    data.forEach(post => {
+    const p = new Post({
+    id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industry_id
     })
-  }
-
-
-  static deletePost(id){
-    const configObj = {
-        method: 'DELETE',
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        }
-    }
-    debugger
-    fetch(`${this.baseURL}/${id}`, configObj)
-      .then(r => r.json())
-      //put debugger here {debugger}
-      .then(json => alert(json.message))
-  }
+    p.attachToDom()
+  })
+ })
 }
-  /* take user input 
-     send to backend to update a given post
-  */
+}
+
+//   static deletePost(id){
+//           const configObj = {
+//             method: 'DELETE',
+//             headers: {
+//             "Content-Type": "application/json",
+//              Accept: "application/json"
+//             }
+//           }
+    
+//     fetch(`${this.baseURL}/${id}`, configObj)
+//       .then(r => r.json())
+//       //put debugger here {debugger}
+//       .then(json => alert(json.message))
+//   }
+
+//   static savePost(id) {
+//         const configObj = {
+//           method:'PATCH',
+//            headers: { 
+//             "Content-Type": "application/json",
+//                 Accept: "application/json"
+//          }
+//        }
+//   }
+
+
+  
+//   /* take user input 
+//      send to backend to update a given post
+//   */
 //   static editPost(post) {
 //     // define a variable called post with the fields title, salary, details
     
@@ -54,9 +68,9 @@ class PostApi {
 //       },
 //       body: JSON.stringify(PostInfo)
 //     }
-//   }
+  
 
-//   static savePost(post){
+//     static savePost(post) {
 //     let {title, salary, detail} = post
 //     const postInfo = {
 //         title,
@@ -71,7 +85,7 @@ class PostApi {
 //         Accept: "application/json"
 //       },
 //       body: JSON.stringify(postInfo)
-//      }
+//     }
 
 //     fetch(`${this.baseURL}`, configObj)
 //       .then(r => r.json())
@@ -79,5 +93,45 @@ class PostApi {
 //         // we are optomistically rendering here since we don't use the json response
 //         post.renderPost()
 //       })
-//   }
+    
 // }
+// // static editPost(post)){
+// //         let {title, salary, details} = post
+// //         const postInfo = {
+// //       title,
+// //       salary,
+// //       details
+// //   }
+
+//   // const configObj = {
+//   //     method: 'PATCH',
+//   //     headers: {
+//   //         "Content-Type": "application/json",
+//   //         Accept: "application/json"
+//   //     },
+//   //     body: JSON.stringify(postInfo)
+//   // }
+
+// //   fetch(`${this.baseURL}/${post.id}`, configObj)
+// //   .then(r => r.json())
+// //   .then(json => {
+// //       // we are optomistically rendering here since we don't use the json response
+// //       post.renderPost()
+// //   })
+// // }
+
+// // static click = (e) {
+// //   e.preventDefault
+// //   fetch(`http://localhost:3000/toys/${e.target.id}`, {
+// //   method: "PATCH",
+// //   headers: {
+// //   "Content-Type": "application/json",
+// //   "Accept": "application/json"
+
+// //   },
+// //   body: JSON.stringify(
+// //   }
+// // }
+// // }
+// //   }
+// // }
