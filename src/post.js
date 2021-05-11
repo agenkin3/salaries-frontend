@@ -1,6 +1,6 @@
 class Post {
   static all = []
-  static container = document.getElementById('post-list')
+  
   //a constructor is a function that creates an instance of a class which is typically called an object
   //the purpose is to create an object and set values
   constructor(
@@ -26,13 +26,14 @@ class Post {
     renderPost(){
       this.element.innerHTML = `
       <div data-id="${this.id}">
-          <strong class="title">Job Title: ${this.title}</strong> <br>
+          <strong class="title">Job Title: <span class="title-details">${this.title}</span></strong> <br>
           <span class="salary">Salary($): ${this.salary}</span> <br>
           <span class="details">Details: ${this.details}</span> <br>
    
       </div>
-      <button class="edit" data-id="${this.id}">Edit</button>
+      <button class="edit" data-id="${this.id}" >Edit</button>
       <button class="delete" data-id="${this.id}">Delete</button>
+      <button class="save" data-id="${this.id}">Save New</button>
   `
 
       return this.element
@@ -54,9 +55,10 @@ class Post {
       this.editPost(e)
     }
     else if (e.target.innerText === "Create") {
-      this.createPost(e)
+      this.createPost()
     }
   }
+
 deletePost = (e) => {
 this.element.remove() //remove element from DOM 
 PostApi.deletePost(this.id) // remove element using API 
@@ -67,15 +69,15 @@ PostApi.deletePost(this.id) // remove element using API
     const element = this.element
     const div = this.element.querySelector('div')
 
-    const title = element.querySelector('.title')
-    const salary = element.querySelector('.salary')
-    const details = element.querySelector('.details')
+    const title = element.querySelector('.title-details').innerText
+    const salary = element.querySelector('.salary').innerText
+    const details = element.querySelector('.details').innerText
   
 //fix salary and num 
   div.innerHTML = `
   <label for="post-title">Title:</label> 
   <input type="text" name="title" class="edit-title" value="${title}"> <br>
-  <label for="post-salaru">Salary:</label>
+  <label for="post-salary">Salary:</label>
         <input type="num" name="salary" class="edit-salary" value="${salary}"> <br>
         <label for="post-details">Details:</label>
         <input type="text" name="details" class="edit-details" value="${details}"> <br>
@@ -92,13 +94,14 @@ PostApi.deletePost(this.id) // remove element using API
 //figure out how to name elements, and then grab the correct one
 // in CSS a dot is for a class and a hashtag is for an ID 
   createPost = () => {
-    e.preventDefault();
-    this.title = this.element.querySelector("#new-post-title").value
-    this.salary = this.element.querySelector("#new-post-salary").value
-    this.details = this.element.querySelector("#new-post-details").value
-    console.log('create post function')
+    console.log("we are here")
+    // let container = document.getElementById('post-list')
+    // this.title = this.element.querySelector("#new-post-title").value
+    // this.salary = this.element.querySelector("#new-post-salary").value
+    // this.details = this.element.querySelector("#new-post-details").value
+    //console.log('create post function')
     // postApi.savePost(this)
-    // PostApi.createPost(this)
-    this.element.append()
+    //PostApi.createPost()
+    
   }
 }

@@ -15,32 +15,60 @@ static baseURL = 'http://localhost:3000/api/v1/posts'
   })
  })
 }
-}
 
-//   static deletePost(id){
-//           const configObj = {
-//             method: 'DELETE',
-//             headers: {
-//             "Content-Type": "application/json",
-//              Accept: "application/json"
-//             }
-//           }
-    
+  static deletePost(id){
+          const configObj = {
+            method: 'DELETE',
+            headers: {
+            "Content-Type": "application/json",
+             Accept: "application/json"
+            }
+          }
+        }
+  // take user input and send to backend       
+  static createPost(e) {
+    console.log("create post from post api")
+    debugger 
+    const postData = {
+      title: "sgdg",
+      salary: 100,
+      details: "Sfg"
+    };
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(postData)
+      };
+      fetch(this.baseURL,configObj)
+      .then(res => res.json())
+      .then(this.getPosts())
+
+
+    }
+      }
+  
+    //fetch(this.baseURL)
+
+
 //     fetch(`${this.baseURL}/${id}`, configObj)
 //       .then(r => r.json())
 //       //put debugger here {debugger}
 //       .then(json => alert(json.message))
 //   }
 
-//   static savePost(id) {
-//         const configObj = {
-//           method:'PATCH',
-//            headers: { 
-//             "Content-Type": "application/json",
-//                 Accept: "application/json"
-//          }
-//        }
-//   }
+  // static savePost(id) {
+  //       const configObj = {
+  //         method:'PATCH',
+  //          headers: { 
+  //           "Content-Type": "application/json",
+  //               Accept: "application/json"
+  //        }
+  //      }
+  // }
 
 
   
