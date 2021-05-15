@@ -2,7 +2,7 @@ class Post {
   static all = []
   
   constructor(
-    {id, title, salary, details, industryId})
+    {id,title, salary, details,industryId})
       {
       
       this.title = title
@@ -49,7 +49,7 @@ class Post {
     }
     deletePost = (e) => {
       this.element.remove() //remove element from DOM 
-      PostApi.deletePost(this.id) // remove element using API 
+      PostApi.deletePost(this.element.dataset.id) // remove element using API 
     }
 //   //when you click the edit button it will display the edit field with current information prepopulating
 
@@ -62,9 +62,11 @@ class Post {
     }
 
     static createPost = (e) => {
-      this.title = document.querySelector("#new-post-title").value
-      this.salary = document.querySelector("#new-post-salary").value
-      this.details = document.querySelector("#new-post-details").value
-      PostApi.createPost()
+      console.log("create post called")
+      let x = document.querySelector("#new-post-title").value
+      let y = document.querySelector("#new-post-salary").value
+      let z = document.querySelector("#new-post-details").value
+      console.log('calling PostApi.createpost')
+      PostApi.createPost(x, y, z)
     }
 }

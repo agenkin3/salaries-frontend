@@ -19,7 +19,6 @@ class Industry {
       Industry.all.push(this)
     }
 
-     
     renderindustry() {
       this.element.innerHTML = `
           <div data-id= ${this.id}>
@@ -30,7 +29,6 @@ class Industry {
           <button class="view" data-id="${this.id}">View</button>
   `      
   }
-
     attachToDom() {
     allindustries.appendChild(this.renderindustry())
   }}

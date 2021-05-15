@@ -1,18 +1,13 @@
-let title = document.querySelector("#new-post-title").value
-let salary = document.querySelector("#new-post-salary").value
-let details = document.querySelector("#new-post-details").value
 class PostApi {
   static baseURL = 'http://localhost:3000/api/v1/posts'
   
-
-
     static getPosts() {
       fetch(this.baseURL) 
         .then(res => res.json())
         .then(data => {
           data.forEach(post => {
             const p = new Post({
-              id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industry_id
+             id: post.id, title: post.title, salary: post.salary, details: post.details
             })
             p.attachToDom()
           })
@@ -27,17 +22,27 @@ class PostApi {
         Accept: "application/json"
         }
       }
+      let postURL = `${this.baseURL}/${id}`
+      fetch(postURL, configObj)
+      .then(response => response.json())
+      .then(data => console.log(data))
     }
+
     // take user input and send to backend       
-    static createPost(e) {
+    static createPost(title, salary, details) {
       const configObj = {
         method: 'POST',
         headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
-        }
+        },
+        body: JSON.stringify({
+          "title": title,
+          "salary": salary,
+          "details": details
+        })
       }
-        fetch(this.baseURL) 
+      fetch(this.baseURL, configObj) 
         .then(res => res.json())
         .then(data => {
           data.forEach(post => {
@@ -49,4 +54,4 @@ class PostApi {
         })
     }
 
-  }
+}

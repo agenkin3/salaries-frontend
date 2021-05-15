@@ -8,6 +8,7 @@ PostApi.getPosts()
 //different from function in relation to hoisting 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    Post.createPost(e)
+    console.log('calling create post')
+    Post.createPost(e);
 })
   
