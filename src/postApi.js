@@ -28,7 +28,8 @@ class PostApi {
       .then(data => console.log(data))
     }
 
-    // take user input and send to backend       
+    // take user input and send to backend   
+    // TODO: fix syntax error    
     static createPost(title, salary, details) {
       const configObj = {
         method: 'POST',

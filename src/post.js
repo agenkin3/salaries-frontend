@@ -62,11 +62,9 @@ class Post {
     }
 
     static createPost = (e) => {
-      console.log("create post called")
       let x = document.querySelector("#new-post-title").value
       let y = document.querySelector("#new-post-salary").value
       let z = document.querySelector("#new-post-details").value
-      console.log('calling PostApi.createpost')
       PostApi.createPost(x, y, z)
     }
 }
