@@ -1,165 +1,52 @@
+let title = document.querySelector("#new-post-title").value
+let salary = document.querySelector("#new-post-salary").value
+let details = document.querySelector("#new-post-details").value
 class PostApi {
-static baseURL = 'http://localhost:3000/api/v1/posts'
-
-  static getPosts() {
-    fetch(this.baseURL) 
-    .then(res => res.json())
-      // console log to debug
-      //.then(json => console.log(json))
-    .then(data => {
-    data.forEach(post => {
-    const p = new Post({
-    id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industry_id
-    })
-    p.attachToDom()
-  })
- })
-}
-
-  static deletePost(id){
-          const configObj = {
-            method: 'DELETE',
-            headers: {
-            "Content-Type": "application/json",
-             Accept: "application/json"
-            }
-          }
-        }
-  // take user input and send to backend       
-  static createPost(e) {
-    console.log("create post from post api")
-    debugger 
-    const postData = {
-      title: "sgdg",
-      salary: 100,
-      details: "Sfg"
-    };
-
-    const configObj = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(postData)
-      };
-      fetch(this.baseURL,configObj)
-      .then(res => res.json())
-      .then(this.getPosts())
+  static baseURL = 'http://localhost:3000/api/v1/posts'
+  
 
 
+    static getPosts() {
+      fetch(this.baseURL) 
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(post => {
+            const p = new Post({
+              id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industry_id
+            })
+            p.attachToDom()
+          })
+        })
     }
+  
+    static deletePost(id){
+      const configObj = {
+        method: 'DELETE',
+        headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+        }
       }
-  
-    //fetch(this.baseURL)
+    }
+    // take user input and send to backend       
+    static createPost(e) {
+      const configObj = {
+        method: 'POST',
+        headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+        }
+      }
+        fetch(this.baseURL) 
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(post => {
+            const np = new Post({
+             title: this.title, salary: this.salary, details: this.details
+            })
+            np.attachToDom()
+          })
+        })
+    }
 
-
-//     fetch(`${this.baseURL}/${id}`, configObj)
-//       .then(r => r.json())
-//       //put debugger here {debugger}
-//       .then(json => alert(json.message))
-//   }
-
-  // static savePost(id) {
-  //       const configObj = {
-  //         method:'PATCH',
-  //          headers: { 
-  //           "Content-Type": "application/json",
-  //               Accept: "application/json"
-  //        }
-  //      }
-  // }
-
-
-  
-//   /* take user input 
-//      send to backend to update a given post
-//   */
-//   static editPost(post) {
-//     // define a variable called post with the fields title, salary, details
-    
-//     //deconstruction
-//     let {title, salary, details} = post
-    
-//     const postInfo = {
-//       title,
-//       salary,
-//       details
-//     }
-
-//     //this is what we will do with the user input for edit post 
-//     const configObj = {
-//       method: 'PATCH',
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json"
-//       },
-//       body: JSON.stringify(PostInfo)
-//     }
-  
-
-//     static savePost(post) {
-//     let {title, salary, detail} = post
-//     const postInfo = {
-//         title,
-//         salary,
-//       detail
-//     }
-
-//     const configObj = {
-//       method: 'PATCH',
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json"
-//       },
-//       body: JSON.stringify(postInfo)
-//     }
-
-//     fetch(`${this.baseURL}`, configObj)
-//       .then(r => r.json())
-//       .then(json => {
-//         // we are optomistically rendering here since we don't use the json response
-//         post.renderPost()
-//       })
-    
-// }
-// // static editPost(post)){
-// //         let {title, salary, details} = post
-// //         const postInfo = {
-// //       title,
-// //       salary,
-// //       details
-// //   }
-
-//   // const configObj = {
-//   //     method: 'PATCH',
-//   //     headers: {
-//   //         "Content-Type": "application/json",
-//   //         Accept: "application/json"
-//   //     },
-//   //     body: JSON.stringify(postInfo)
-//   // }
-
-// //   fetch(`${this.baseURL}/${post.id}`, configObj)
-// //   .then(r => r.json())
-// //   .then(json => {
-// //       // we are optomistically rendering here since we don't use the json response
-// //       post.renderPost()
-// //   })
-// // }
-
-// // static click = (e) {
-// //   e.preventDefault
-// //   fetch(`http://localhost:3000/toys/${e.target.id}`, {
-// //   method: "PATCH",
-// //   headers: {
-// //   "Content-Type": "application/json",
-// //   "Accept": "application/json"
-
-// //   },
-// //   body: JSON.stringify(
-// //   }
-// // }
-// // }
-// //   }
-// // }
+  }
