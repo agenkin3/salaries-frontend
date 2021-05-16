@@ -14,21 +14,26 @@ class Industry {
       //what does this line do?
       this.element.dataset.id = id
   
-      this.element.addEventListener('click', this.handleItemClick)
-  
       Industry.all.push(this)
     }
 
-    renderindustry() {
+    renderIndustry() {
       this.element.innerHTML = `
           <div data-id= ${this.id}>
-          <strong class="title"> ${this.name}</strong> <br>
-          <span class="salary">Description: ${this.description}</span> <br>
-  
-          </div>
-          <button class="view" data-id="${this.id}">View</button>
-  `      
+          <strong class="name"> ${this.name}</strong> <br>
+          <span class="description">Description: ${this.description}</span> <br>
+          </div>`    
+      
+      return this.element
   }
     attachToDom() {
-    allindustries.appendChild(this.renderindustry())
+    allindustries.appendChild(this.renderIndustry())
   }}
+
+
+//for dropdown
+//the same way that i added list items to the list
+//for posts, add dropdown items to the dropdown for industries
+
+//then have a dropdown that includes the same industries many times
+//

@@ -25,12 +25,8 @@ class Post {
             <strong class="title">Job Title: <span class="title-details">${this.title}</span></strong> <br>
             <span class="salary">Salary($): ${this.salary}</span> <br>
             <span class="details">Details: ${this.details}</span> <br>
-     
         </div>
-        
-        <button class="delete" data-id="${this.id}">Delete</button>
-      
-    `
+        <button class="delete" data-id="${this.id}">Delete</button>`
   
         return this.element
        }   
@@ -62,9 +58,9 @@ class Post {
     }
 
     static createPost = (e) => {
-      let x = document.querySelector("#new-post-title").value
-      let y = document.querySelector("#new-post-salary").value
-      let z = document.querySelector("#new-post-details").value
-      PostApi.createPost(x, y, z)
+      let title = document.querySelector("#new-post-title").value
+      let salary = document.querySelector("#new-post-salary").value
+      let details = document.querySelector("#new-post-details").value
+      PostApi.createPost(title, salary, details)
     }
 }
