@@ -28,9 +28,8 @@ class PostApi {
     .then(data => console.log(data))
   }
 
-  // take user input and send to backend   
-  // TODO: fix syntax error    
-  static createPost(newTitle, newSalary, newDetails) {
+  // take user input and send to backend      
+  static createPost(newTitle, newSalary, newDetails, newIndustry) {
     const configObj = {
       method: 'POST',
       headers: {
@@ -40,25 +39,27 @@ class PostApi {
       body: JSON.stringify({
         title: newTitle,
         salary: newSalary,
-        details: newDetails
+        details: newDetails,
+        industry: newIndustry
       })
     }
     
-    return fetch(this.baseURL, configObj) 
+return fetch(this.baseURL, configObj) 
     //this line  
-      .then(res => console.log(res.json()))
+      .then(res => res.json())
       .then(data => {
-        const post = data.data
+        //const post = data.data
         const np = new Post({
           title: newTitle, salary: newSalary, details: newDetails
           })
           np.attachToDom()
-        data.forEach(post => {
-          const np = new Post({
-            title: this.title,salary: this.salary, details: this.details
-          })
-          np.attachToDom()
-        })
-    })
-  }
+      })
+  
 }
+
+
+ // data.forEach(post => {
+        //   const np = new Post({
+        //     title: this.title,salary: this.salary, details: this.details
+        //   })
+        //   np.attachToDom()

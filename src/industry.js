@@ -23,17 +23,15 @@ class Industry {
           <strong class="name"> ${this.name}</strong> <br>
           <span class="description">Description: ${this.description}</span> <br>
           </div>`    
-      
       return this.element
-  }
+    }
     attachToDom() {
     allindustries.appendChild(this.renderIndustry())
-  }}
-
+    }
+}
 
 //for dropdown
 //the same way that i added list items to the list
 //for posts, add dropdown items to the dropdown for industries
-
 //then have a dropdown that includes the same industries many times
 //

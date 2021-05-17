@@ -8,6 +8,7 @@ class Post {
       this.title = title
       this.salary = salary
       this.details = details
+      // this.industry_id.name = industry
       //creating a list item HTML element 
       this.element = document.createElement('li')
       //for that element, assign it the ID 
@@ -25,6 +26,7 @@ class Post {
             <strong class="title">Job Title: <span class="title-details">${this.title}</span></strong> <br>
             <span class="salary">Salary($): ${this.salary}</span> <br>
             <span class="details">Details: ${this.details}</span> <br>
+            <span class="details">Industry: ${this.industry_id}</span> <br>
         </div>
         <button class="delete" data-id="${this.id}">Delete</button>`
   
