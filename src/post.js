@@ -8,6 +8,7 @@ class Post {
       this.title = title
       this.salary = salary
       this.details = details
+      this.industryId = industryId
       // this.industry_id.name = industry
       //creating a list item HTML element 
       this.element = document.createElement('li')
@@ -63,6 +64,7 @@ class Post {
       let title = document.querySelector("#new-post-title").value
       let salary = document.querySelector("#new-post-salary").value
       let details = document.querySelector("#new-post-details").value
-      PostApi.createPost(title, salary, details)
+      let industry = document.getElementById("industry").value
+      PostApi.createPost(title, salary, details, industry)
     }
 }

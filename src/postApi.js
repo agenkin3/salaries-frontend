@@ -7,7 +7,7 @@ class PostApi {
       .then(data => {
         data.forEach(post => {
           const p = new Post({
-            id: post.id, title: post.title, salary: post.salary, details: post.details
+            id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industryId
           })
           p.attachToDom()
         })
@@ -30,6 +30,7 @@ class PostApi {
 
   // take user input and send to backend      
   static createPost(newTitle, newSalary, newDetails, newIndustry) {
+
     const configObj = {
       method: 'POST',
       headers: {
@@ -40,22 +41,22 @@ class PostApi {
         title: newTitle,
         salary: newSalary,
         details: newDetails,
-        industry: newIndustry
+        industry_id: newIndustry
       })
     }
     
-return fetch(this.baseURL, configObj) 
-    //this line  
+ fetch(this.baseURL, configObj) 
       .then(res => res.json())
       .then(data => {
-        //const post = data.data
+        //debugger
+        //const post = data.dat
         const np = new Post({
-          title: newTitle, salary: newSalary, details: newDetails
+          title: newTitle, salary: newSalary, details: newDetails, industryId: industry
           })
           np.attachToDom()
       })
   
-}
+}}
 
 
  // data.forEach(post => {
