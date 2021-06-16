@@ -29,7 +29,7 @@ class Post {
             <span class="salary">Salary($): ${this.salary}</span> <br>
             <span class="details">Details: ${this.details}</span> <br>
             <span class="industry">Industry: ${this.industry.value}</span> <br>
-            <span class="id">PostID: ${this.id}</span> <br>
+            <span class="id">PostID: ${this.element.id}</span> <br>
         </div>
         <button class="delete" data-id="${this.id}">Delete</button>`
   
