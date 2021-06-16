@@ -20,8 +20,9 @@ class Industry {
     renderIndustry() {
       this.element.innerHTML = `
           <div data-id= ${this.id}>
-          <strong class="name"> ${this.name}</strong> <br>
-          <span class="description">Description: ${this.description}</span> <br>
+          <strong class="name"> Name: ${this.name} </strong> <br>
+          <span class="description"> Description: ${this.description}</span> <br>
+          <span class="description"> Industry ID: ${this.id}</span> <br>
           </div>`    
       return this.element
     }

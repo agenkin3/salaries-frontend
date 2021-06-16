@@ -2,13 +2,14 @@ class Post {
   static all = []
   
   constructor(
-    {id,title, salary, details,industryId})
+    {id,title, salary, details, industry_id})
       {
       
       this.title = title
       this.salary = salary
       this.details = details
-      this.industryId = industryId
+      this.industry = industry
+      this.id = id
       // this.industry_id.name = industry
       //creating a list item HTML element 
       this.element = document.createElement('li')
@@ -27,7 +28,8 @@ class Post {
             <strong class="title">Job Title: <span class="title-details">${this.title}</span></strong> <br>
             <span class="salary">Salary($): ${this.salary}</span> <br>
             <span class="details">Details: ${this.details}</span> <br>
-            <span class="details">Industry: ${this.industry_id}</span> <br>
+            <span class="industry">Industry: ${this.industry.value}</span> <br>
+            <span class="id">PostID: ${this.id}</span> <br>
         </div>
         <button class="delete" data-id="${this.id}">Delete</button>`
   
@@ -52,15 +54,15 @@ class Post {
     }
 //   //when you click the edit button it will display the edit field with current information prepopulating
 
-    static editPost = (e) => {
-      const element = this.element
-      const div = this.element.querySelector('div')
-      const title = element.querySelector('.title-details').innerText
-      const salary = element.querySelector('.salary').innerText
-      const details = element.querySelector('.details').innerText
-    }
+    // static editPost = (e) => {
+    //   const element = this.element
+    //   const div = this.element.querySelector('div')
+    //   const title = element.querySelector('.title-details').innerText
+    //   const salary = element.querySelector('.salary').innerText
+    //   const details = element.querySelector('.details').innerText
+    // }
 
-    static createPost = (e) => {
+     static createPost = (e) => {
       let title = document.querySelector("#new-post-title").value
       let salary = document.querySelector("#new-post-salary").value
       let details = document.querySelector("#new-post-details").value

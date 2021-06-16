@@ -29,29 +29,28 @@ class PostApi {
   }
 
   // take user input and send to backend      
-  static createPost(newTitle, newSalary, newDetails, newIndustry) {
+  static createPost(title, salary, details, industry) {
 
     const configObj = {
       method: 'POST',
       headers: {
       "Content-Type": "application/json",
-      Accept: "application/json"
+      Accept: "application/json",
       },
       body: JSON.stringify({
-        title: newTitle,
-        salary: newSalary,
-        details: newDetails,
-        industry_id: newIndustry
+        title: title,
+        salary: salary,
+        details: details,
+        industry_id: industry,
       })
     }
     
- fetch(this.baseURL, configObj) 
-      .then(res => res.json())
-      .then(data => {
-        //debugger
-        //const post = data.dat
-        const np = new Post({
-          title: newTitle, salary: newSalary, details: newDetails, industryId: industry
+ fetch(this.baseURL, configObj)
+      //.then(response => 
+    //.then(response => response.json())
+      .then(data =>  {
+        const np = new Post ({
+          title: title, salary: salary, details: details, industryId: industry
           })
           np.attachToDom()
       })
