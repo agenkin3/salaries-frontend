@@ -66,7 +66,7 @@ class Post {
       let title = document.querySelector("#new-post-title").value
       let salary = document.querySelector("#new-post-salary").value
       let details = document.querySelector("#new-post-details").value
-      let industry = document.getElementById("industry").value
-      PostApi.createPost(title, salary, details, industry)
+      let industry_id = document.getElementById("industry").value
+      PostApi.createPost(title, salary, details, industry_id)
     }
 }

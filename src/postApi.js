@@ -19,7 +19,7 @@ class PostApi {
       method: 'DELETE',
       headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      "Accept": "application/json",
       }
     }
     let postURL = `${this.baseURL}/${id}`
@@ -50,7 +50,7 @@ class PostApi {
     //.then(response => response.json())
       .then(data =>  {
         const np = new Post ({
-          title: title, salary: salary, details: details, industryId: industry
+          title: title, salary: salary, details: details, industry: industry
           })
           np.attachToDom()
       })
