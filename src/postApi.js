@@ -56,10 +56,3 @@ class PostApi {
       })
   
 }}
-
-
- // data.forEach(post => {
-        //   const np = new Post({
-        //     title: this.title,salary: this.salary, details: this.details
-        //   })
-        //   np.attachToDom()
