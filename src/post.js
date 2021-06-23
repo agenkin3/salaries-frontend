@@ -2,13 +2,14 @@ class Post {
   static all = []
   
   constructor(
-    {id,title, salary, details, industry_id})
+    {id,title, salary, details, industry})
       {
       
       this.title = title
       this.salary = salary
       this.details = details
       this.industry = industry
+      
       this.id = id
       // this.industry_id.name = industry
       //creating a list item HTML element 
@@ -28,7 +29,7 @@ class Post {
             <strong class="title">Job Title: <span class="title-details">${this.title}</span></strong> <br>
             <span class="salary">Salary($): ${this.salary}</span> <br>
             <span class="details">Details: ${this.details}</span> <br>
-            <span class="industry">Industry: ${this.industry.value}</span> <br>
+            <span class="industry">Industry: ${this.industry}</span> <br>
             
         </div>
         <button class="delete" data-id="${this.id}">Delete</button>`

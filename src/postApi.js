@@ -5,9 +5,13 @@ class PostApi {
     fetch(this.baseURL) 
       .then(res => res.json())
       .then(data => {
-        data.forEach(post => {
+        data.data.forEach(post => {
           const p = new Post({
-            id: post.id, title: post.title, salary: post.salary, details: post.details, industryId: post.industryId
+            //id: post.id, 
+            title: post.attributes.title, 
+            salary: post.attributes.salary, 
+            details: post.attributes.details, 
+            industry: post.attributes.industry.name
           })
           p.attachToDom()
         })
@@ -47,10 +51,14 @@ class PostApi {
     
  fetch(this.baseURL, configObj)
       //.then(response => 
-    //.then(response => response.json())
-      .then(data =>  {
+    .then(response => response.json())
+      .then(post =>  {
         const np = new Post ({
-          title: title, salary: salary, details: details, industry: industry
+         // post.data.attributes.industry.name
+          title: post.data.attributes.title, 
+          salary: post.data.attributes.salary, 
+          details: post.data.attributes.details, 
+          industry: post.data.attributes.industry.name
           })
           np.attachToDom()
       })
