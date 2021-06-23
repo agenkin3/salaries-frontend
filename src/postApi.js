@@ -7,7 +7,7 @@ class PostApi {
       .then(data => {
         data.data.forEach(post => {
           const p = new Post({
-            //id: post.id, 
+            id: post.attributes.id, 
             title: post.attributes.title, 
             salary: post.attributes.salary, 
             details: post.attributes.details, 
@@ -29,7 +29,7 @@ class PostApi {
     let postURL = `${this.baseURL}/${id}`
     fetch(postURL, configObj)
     .then(response => response.json())
-    .then(data => console.log(data))
+    //.then(data => console.log(data))
   }
 
   // take user input and send to backend      
@@ -55,7 +55,8 @@ class PostApi {
       .then(post =>  {
         const np = new Post ({
          // post.data.attributes.industry.name
-          title: post.data.attributes.title, 
+         id: post.data.attributes.id, 
+         title: post.data.attributes.title, 
           salary: post.data.attributes.salary, 
           details: post.data.attributes.details, 
           industry: post.data.attributes.industry.name

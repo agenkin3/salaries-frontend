@@ -2,14 +2,13 @@ class Post {
   static all = []
   
   constructor(
-    {id,title, salary, details, industry})
+    {id, title, salary, details, industry})
       {
       
       this.title = title
       this.salary = salary
       this.details = details
       this.industry = industry
-      
       this.id = id
       // this.industry_id.name = industry
       //creating a list item HTML element 
@@ -50,8 +49,11 @@ class Post {
       }
     }
     deletePost = (e) => {
-      this.element.remove() //remove element from DOM 
+      this.element.remove() 
+      //remove element from DOM 
+     
       PostApi.deletePost(this.element.dataset.id) // remove element using API 
+      //debugger
     }
 //   //when you click the edit button it will display the edit field with current information prepopulating
 
