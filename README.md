@@ -1,3 +1,3 @@
 # salaries-frontend
 
-placeholder Readme
+The backend is here: https://github.com/alicegenkin/salaries
